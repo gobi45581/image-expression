@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Expression Prediction</title>
+</head>
+<body>
+    <h1>Upload Image</h1>
+    <input type="file" id="fileInput">
+    <button onclick="sendImage()">Predict</button>
+    <p id="result"></p>
+    <script>
+        async function sendImage() {
+            const fileInput = document.getElementById('fileInput').files[0];
+            if (!fileInput) return alert("Please select an image");
+            const formData = new FormData();
+            formData.append("file", fileInput);
+            const res = await fetch("/predict", {
+                method: "POST",
+                body: formData
+            });
+            const data = await res.json();
+            document.getElementById("result").innerText = "Prediction: " + data.prediction;
+        }
+    </script>
+</body>
+</html>

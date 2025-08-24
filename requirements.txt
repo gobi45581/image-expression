@@ -1,0 +1,13 @@
+torch
+torchvision
+torchaudio
+tensorflow
+opencv-python
+pillow
+numpy
+matplotlib
+scikit-learn
+tqdm
+fastapi
+uvicorn
+python-multipart
